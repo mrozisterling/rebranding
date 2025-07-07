@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rebranding Sterling to FADV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-light: #e0e7ff;
+      --gray-border: #e5e7eb;
+      --gray-bg: #f9fafb;
+      --text-main: #222;
+      --sidebar-width: 180px;
+      --spacing: 4px;
+      --thumb-width: 480px;
+      --thumb-height: 240px;
+      --thumb-width-mobile: 240px;
+      --thumb-height-mobile: 120px;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--gray-bg);
+      font-family: 'Roboto', Arial, sans-serif;
+      color: var(--text-main);
+      font-size: 16px;
+    }
+    body {
+      min-height: 100vh;
+    }
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: var(--sidebar-width);
+      background: #fff;
+      border-right: 1px solid var(--gray-border);
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--spacing) * 6) 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing) * 2);
+      padding: 0 calc(var(--spacing) * 3);
+    }
+    .sidebar-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2);
+      border-left: 3px solid transparent;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      border-radius: 0;
+      cursor: pointer;
+    }
+    .sidebar-link.active,
+    .sidebar-link:hover,
+    .sidebar-link:focus {
+      color: var(--blue);
+      border-left: 3px solid var(--blue);
+      background: var(--blue-light);
+    }
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
+      min-width: 0;
+      background: var(--gray-bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 32px;
+      margin-bottom: calc(var(--spacing) * 6);
+    }
+    .legend {
+      display: flex;
+      gap: calc(var(--spacing) * 4);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      align-items: center;
+      margin-bottom: calc(var(--spacing) * 6);
+      justify-content: flex-start;
+    }
+    .legend-label {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing) * 1);
+    }
+    .label-dot {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 2px;
+      background: #fff;
+    }
+    .gallery-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing) * 6);
+    }
+    .portal-title {
+      margin: 32px 0 12px 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.01em;
+    }
+    .page-row {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing) * 2);
+      border-bottom: 1px solid var(--gray-border);
+      padding-bottom: calc(var(--spacing) * 4);
+    }
+    .page-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: calc(var(--spacing) * 2);
+      margin-top: 0;
+      letter-spacing: 0;
+    }
+    .theme-cards {
+      display: flex;
+      gap: calc(var(--spacing) * 4);
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .theme-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: var(--thumb-width);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 auto;
+    }
+    .theme-label {
+      margin-bottom: calc(var(--spacing) * 2);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 2px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+    .theme-thumb {
+      width: var(--thumb-width);
+      height: var(--thumb-height);
+      object-fit: cover;
+      background: #fff;
+      border: 1px solid var(--gray-border);
+      border-radius: 0;
+      display: block;
+      transition: border-color 0.15s;
+      margin: 0 auto;
+    }
+    .theme-card:hover .theme-thumb,
+    .theme-card:focus .theme-thumb {
+      border-color: var(--blue);
+    }
+    .sidebar-toggle-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--blue);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 101;
+      margin-left: auto;
+      margin-right: 0;
+    }
+    @media (max-width: 700px) {
+      .sidebar {
+        position: fixed;
+        left: -100vw;
+        width: 70vw;
+        min-width: 120px;
+        max-width: 220px;
+        height: 100vh;
+        z-index: 100;
+        transition: left 0.2s;
+      }
+      .sidebar.open {
+        left: 0;
+      }
+      .sidebar-backdrop {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(30,41,59,0.10);
+        z-index: 99;
+      }
+      .sidebar.open + .sidebar-backdrop {
+        display: block;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: calc(var(--spacing) * 6) calc(var(--spacing) * 2);
+      }
+      .gallery-container {
+        padding: 0;
+      }
+      .theme-cards {
+        flex-direction: row;
+        gap: calc(var(--spacing) * 4);
+        justify-content: flex-start;
+      }
+      .theme-card {
+        width: var(--thumb-width-mobile);
+        min-width: 80px;
+        max-width: 100px;
+      }
+      .theme-thumb {
+        width: var(--thumb-width-mobile);
+        height: var(--thumb-height-mobile);
+      }
+      .header-row {
+        min-height: 32px;
+        margin-bottom: calc(var(--spacing) * 6);
+        justify-content: flex-end;
+      }
+      .sidebar-toggle-btn {
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-links" id="sidebar-links">
+        <a class="sidebar-link active" data-portal="Candidate Portal" href="#">Candidate Portal</a>
+        <a class="sidebar-link" data-portal="Screening Portal" href="#">Screening Portal</a>
+        <a class="sidebar-link" data-portal="Missinginfo Portal" href="#">Missinginfo Portal</a>
+        <a class="sidebar-link" data-portal="Verification Portal" href="#">Verification Portal</a>
+      </div>
+    </nav>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header-row">
+        <button class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Open sidebar">&#9776;</button>
+      </div>
+      <div class="legend">
+        <div class="legend-label"><span class="label-dot">A</span>Original</div>
+        <div class="legend-label"><span class="label-dot">B</span>New</div>
+      </div>
+      <div style="font-size:0.97rem; color:#555; margin-bottom:24px;">  
+        <strong>Note:</strong> Click any thumbnail to view the full HTML version of that page.  
+      </div>
+      <div class="gallery-container" id="gallery-container">
+        <!-- JS will inject gallery here -->
+      </div>
+    </div>
+  </div>
+  <script>
+    // Sidebar toggle for mobile
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+    function checkMobile() {
+      if (window.innerWidth <= 700) {
+        sidebarToggle.style.display = 'inline-block';
+        sidebar.classList.remove('open');
+      } else {
+        sidebarToggle.style.display = 'none';
+        sidebar.classList.remove('open');
+        sidebarBackdrop.style.display = 'none';
+      }
+    }
+    sidebarToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('open');
+      sidebarBackdrop.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
+    });
+    sidebarBackdrop.addEventListener('click', function() {
+      sidebar.classList.remove('open');
+      sidebarBackdrop.style.display = 'none';
+    });
+    window.addEventListener('resize', checkMobile);
+    window.addEventListener('DOMContentLoaded', checkMobile);
+  </script>
+  <script src="gallery.js"></script>
+</body>
+</html>
