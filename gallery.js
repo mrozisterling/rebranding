@@ -308,13 +308,18 @@ function renderGallery() {
       label.className = 'theme-label';
       label.textContent = theme.label;
 
+      const imageBox = document.createElement('div');
+      imageBox.className = 'image-box';
+
       const img = document.createElement('img');
       img.className = 'theme-thumb';
       img.src = theme.thumb;
       img.alt = `${page.title} ${theme.label}`;
 
+      imageBox.appendChild(img);
+
       a.appendChild(label);
-      a.appendChild(img);
+      a.appendChild(imageBox);
       themeCards.appendChild(a);
     });
 
