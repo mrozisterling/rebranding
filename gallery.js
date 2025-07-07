@@ -166,13 +166,102 @@ const galleryData = [
   {
     website: "Missinginfo Portal",
     pages: [
-      // Add pages here
+      {
+        title: "Main",
+        themes: [
+          { label: "A", link: "missinginfo-portal/html/main-original.html", thumb: "missinginfo-portal/images/main-original.png" },
+          { label: "B", link: "missinginfo-portal/html/main-new.html", thumb: "missinginfo-portal/images/main-new.png" }
+        ]
+      },
+      {
+        title: "Add Item",
+        themes: [
+          { label: "A", link: "missinginfo-portal/html/add-item-original.html", thumb: "missinginfo-portal/images/add-item-original.png" },
+          { label: "B", link: "missinginfo-portal/html/add-item-new.html", thumb: "missinginfo-portal/images/add-item-new.png" }
+        ]
+      },
+      {
+        title: "Unsubmitted Requests",
+        themes: [
+          { label: "A", link: "missinginfo-portal/html/unsubmitted-requests-original.html", thumb: "missinginfo-portal/images/unsubmitted-requests-original.png" },
+          { label: "B", link: "missinginfo-portal/html/unsubmitted-requests-new.html", thumb: "missinginfo-portal/images/unsubmitted-requests-new.png" }
+        ]
+      },
+      {
+        title: "Send Request Prompt",
+        themes: [
+          { label: "A", link: "missinginfo-portal/html/send-request-prompt-original.html", thumb: "missinginfo-portal/images/send-request-prompt-original.png" },
+          { label: "B", link: "missinginfo-portal/html/send-request-prompt-new.html", thumb: "missinginfo-portal/images/send-request-prompt-new.png" }
+        ]
+      },
+      {
+        title: "Request Sent",
+        themes: [
+          { label: "A", link: "missinginfo-portal/html/request-sent-original.html", thumb: "missinginfo-portal/images/request-sent-original.png" },
+          { label: "B", link: "missinginfo-portal/html/request-sent-new.html", thumb: "missinginfo-portal/images/request-sent-new.png" }
+        ]
+      }
     ]
   },
   {
     website: "Verification Portal",
     pages: [
-      // Add pages here
+      {
+        title: "Referee Verification - Reference Request",
+        themes: [
+          { label: "A", link: "verification-portal/html/reference-request-original.html", thumb: "verification-portal/images/reference-request-original.png" },
+          { label: "B", link: "verification-portal/html/reference-request-new.html", thumb: "verification-portal/images/reference-request-new.png" }
+        ]
+      },
+      {
+        title: "Referee Verification - Consent Statement",
+        themes: [
+          { label: "A", link: "verification-portal/html/consent-statement-original.html", thumb: "verification-portal/images/consent-statement-original.png" },
+          { label: "B", link: "verification-portal/html/consent-statement-new.html", thumb: "verification-portal/images/consent-statement-new.png" }
+        ]
+      },
+      {
+        title: "Referee Verification - Review",
+        themes: [
+          { label: "A", link: "verification-portal/html/review-original.html", thumb: "verification-portal/images/review-original.png" },
+          { label: "B", link: "verification-portal/html/review-new.html", thumb: "verification-portal/images/review-new.png" }
+        ]
+      },
+      {
+        title: "Referee Verification - Add Information",
+        themes: [
+          { label: "A", link: "verification-portal/html/add-information-original.html", thumb: "verification-portal/images/add-information-original.png" },
+          { label: "B", link: "verification-portal/html/add-information-new.html", thumb: "verification-portal/images/add-information-new.png" }
+        ]
+      },
+      {
+        title: "Referee Verification - Information Sent",
+        themes: [
+          { label: "A", link: "verification-portal/html/information-sent-original.html", thumb: "verification-portal/images/information-sent-original.png" },
+          { label: "B", link: "verification-portal/html/information-sent-new.html", thumb: "verification-portal/images/information-sent-new.png" }
+        ]
+      },
+      {
+        title: "Screening - Comparison",
+        themes: [
+          { label: "A", link: "verification-portal/html/comparison-original.html", thumb: "verification-portal/images/comparison-original.png" },
+          { label: "B", link: "verification-portal/html/comparison-new.html", thumb: "verification-portal/images/comparison-new.png" }
+        ]
+      },
+      {
+        title: "Screening - Referee Answers",
+        themes: [
+          { label: "A", link: "verification-portal/html/referee-answers-original.html", thumb: "verification-portal/images/referee-answers-original.png" },
+          { label: "B", link: "verification-portal/html/referee-answers-new.html", thumb: "verification-portal/images/referee-answers-new.png" }
+        ]
+      },
+      {
+        title: "Screening - Completed",
+        themes: [
+          { label: "A", link: "verification-portal/html/completed-original.html", thumb: "verification-portal/images/completed-original.png" },
+          { label: "B", link: "verification-portal/html/completed-new.html", thumb: "verification-portal/images/completed-new.png" }
+        ]
+      }
     ]
   }
 ];
